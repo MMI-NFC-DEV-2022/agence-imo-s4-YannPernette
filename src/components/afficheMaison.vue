@@ -1,3 +1,21 @@
+<script setup lang="ts">
+import { defineProps } from 'vue';
+export interface SchemaOffreMaison {
+    id?: string;
+    nomMaison: string;
+    prix: number;
+    favori: boolean;
+    image: string;
+    nbrChambres: number;
+    nbrSDB: number;
+    adresse: string;
+    surface: string;
+}
+
+const props = defineProps<SchemaOffreMaison>();
+</script>
+
+
 
 <template>
     <div
@@ -21,7 +39,7 @@
                         </p>
                     </div>
                     <p class="flex-grow-0 flex-shrink-0 w-[299px] h-8 text-2xl font-semibold text-left text-gray-900">
-                        Beverly Springfield
+                        {{ props.nomMaison }}
                     </p>
                 </div>
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
