@@ -1,10 +1,11 @@
+
 <template>
     <div
         class="flex flex-col justify-start items-start w-[387px] h-[417px] relative rounded-lg bg-white border-[1.5px] border-indigo-100">
         <div class="self-stretch flex-grow-0 flex-shrink-0 h-[200px]">
             <div class="w-[387px] h-[200px] absolute left-[-0.5px] top-[-0.5px] rounded-tl-lg rounded-tr-lg bg-[#130f26]">
             </div>
-            <img src="pexels-binyamin-mellish-106399-1.jpeg"
+            <img src="../assets/img/pexels-binyamin-mellish-106399.jpg"
                 class="w-[387px] h-[235px] absolute left-[-0.5px] top-[-24.5px] object-cover" />
         </div>
         <div
