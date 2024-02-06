@@ -9,7 +9,7 @@ const maMaison: SchemaOffreMaison = {
     nbrSDB: 2,
     adresse: '123 rue de la maison',
     favori: true,
-    image: 'src\assets\img\pexels-binyamin-mellish-106399.jpg',
+    image: "src/assets/img/pexels-binyamin-mellish-106399.jpg",
     surface: "100",
 }
 </script>
@@ -18,7 +18,7 @@ const maMaison: SchemaOffreMaison = {
 <template>
     <div class="mt-10">
         <h1>Etape 1 : </h1>
-        <afficheMaison nomMaison="Maison" :prix="200" :nbrChambres="32" :nbrSDB="67" adresse="oui" favori image="src\assets\img\pexels-binyamin-mellish-106399.jpg" surface="400" />
+        <afficheMaison nomMaison="Maison" :prix="200" :nbrChambres="32" :nbrSDB="67" adresse="oui" favori image="src/assets/img/pexels-binyamin-mellish-106399.jpg" surface="400" />
     </div>
 
     <div class="mt-10">
