@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 
-import { SchemaOffreMaison } from '@/types';
+import { type SchemaOffreMaison } from '@/types';
 
-const props = defineProps<SchemaOffreMaison>();
+defineProps<SchemaOffreMaison>();
 </script>
 
 
@@ -14,7 +14,7 @@ const props = defineProps<SchemaOffreMaison>();
         <div class="self-stretch flex-grow-0 flex-shrink-0 h-[200px]">
             <div class="w-[387px] h-[200px] absolute left-[-0.5px] top-[-0.5px] rounded-tl-lg rounded-tr-lg bg-[#130f26]">
             </div>
-            <img :src="props.image" class="w-[387px] h-[235px] absolute left-[-0.5px] top-[-24.5px] object-cover" />
+            <img :src="image" class="w-[387px] h-[235px] absolute left-[-0.5px] top-[-24.5px] object-cover" />
         </div>
         <div
             class="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-[15px] px-5 py-[30px]">
@@ -22,14 +22,14 @@ const props = defineProps<SchemaOffreMaison>();
                 <div class="flex flex-col justify-start items-start flex-grow relative gap-2.5">
                     <div class="flex justify-start items-end flex-grow-0 flex-shrink-0 w-[197.07px] relative gap-0.5">
                         <p class="flex-grow-0 flex-shrink-0 text-2xl font-bold text-left text-indigo-500">
-                            ${{ props.prix }}
+                            ${{ prix }}
                         </p>
                         <p class="flex-grow-0 flex-shrink-0 w-[58px] h-8 text-base text-left text-gray-500">
                             /month
                         </p>
                     </div>
                     <p class="flex-grow-0 flex-shrink-0 w-[299px] h-8 text-2xl font-semibold text-left text-gray-900">
-                        {{ props.nomMaison }}
+                        {{ nomMaison }}
                     </p>
                 </div>
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +42,7 @@ const props = defineProps<SchemaOffreMaison>();
                 </svg>
             </div>
             <p class="self-stretch flex-grow-0 flex-shrink-0 w-[347px] text-base text-left text-gray-500">
-                {{ props.adresse }}
+                {{ adresse }}
             </p>
             <svg width="347" height="2" viewBox="0 0 347 2" fill="none" xmlns="http://www.w3.org/2000/svg"
                 class="self-stretch flex-grow-0 flex-shrink-0" preserveAspectRatio="xMidYMid meet">
@@ -62,7 +62,7 @@ const props = defineProps<SchemaOffreMaison>();
                             d="M1.875 16.25V15.9375C1.87572 15.6891 1.97473 15.451 2.15038 15.2754C2.32604 15.0997 2.56408 15.0007 2.8125 15H17.1875C17.4359 15.0007 17.674 15.0997 17.8496 15.2754C18.0253 15.451 18.1243 15.6891 18.125 15.9375V16.25"
                             stroke="#6366F1" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path>
                     </svg>
-                    <p class="flex-grow-0 flex-shrink-0 text-xs text-left text-gray-600">{{ props.nbrChambres }} Beds</p>
+                    <p class="flex-grow-0 flex-shrink-0 text-xs text-left text-gray-600">{{ nbrChambres }} Beds</p>
                 </div>
                 <div class="flex justify-center items-center flex-grow relative gap-2">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ const props = defineProps<SchemaOffreMaison>();
                             </clipPath>
                         </defs>
                     </svg>
-                    <p class="flex-grow-0 flex-shrink-0 text-xs text-left text-gray-600">{{ props.nbrSDB }} Bathrooms</p>
+                    <p class="flex-grow-0 flex-shrink-0 text-xs text-left text-gray-600">{{ nbrSDB }} Bathrooms</p>
                 </div>
                 <div class="flex justify-end items-center flex-grow relative gap-2">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +108,7 @@ const props = defineProps<SchemaOffreMaison>();
                             </clipPath>
                         </defs>
                     </svg>
-                    <p class="flex-grow-0 flex-shrink-0 text-xs text-left text-gray-600">{{ props.surface }} m²</p>
+                    <p class="flex-grow-0 flex-shrink-0 text-xs text-left text-gray-600">{{ surface }} m²</p>
                 </div>
             </div>
         </div>
