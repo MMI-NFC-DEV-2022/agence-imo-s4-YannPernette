@@ -1,0 +1,61 @@
+[{
+    "nomMaison": "Maison1",
+    "prix": 1000,
+    "adresse": "14543 rue",
+    "nbrChambres": 2,
+    "nbrSDB": 2,
+    "surface": "30x40m²",
+    "favori": true,
+    "image": "pexels-binyamin-mellish-106399 1 (5).png"
+},
+{
+    "nomMaison": "Maison2",
+    "prix": 1000,
+    "adresse": "123 rue",
+    "nbrChambres": 3,
+    "nbrSDB": 2,
+    "surface": "30x40m²",
+    "favori": true,
+    "image": "pexels-binyamin-mellish-106399 1 (5).png"
+},
+{
+    "nomMaison": "Maison3",
+    "prix": 1000,
+    "adresse": "123 rue",
+    "nbrChambres": 3,
+    "nbrSDB": 2,
+    "surface": "30x40m²",
+    "favori": true,
+    "image": "pexels-binyamin-mellish-106399 1 (5).png"
+},
+{
+    "nomMaison": "Maison4",
+    "prix": 1000,
+    "adresse": "123 rue",
+    "nbrChambres": 3,
+    "nbrSDB": 2,
+    "surface": "30x40m²",
+    "favori": true,
+    "image": "pexels-binyamin-mellish-106399 1 (5).png"
+},
+{
+    "nomMaison": "Maison5",
+    "prix": 1000,
+    "adresse": "123 rue",
+    "nbrChambres": 3,
+    "nbrSDB": 2,
+    "surface": "30x40m²",
+    "favori": true,
+    "image": "pexels-binyamin-mellish-106399 1 (5).png"
+},
+{
+    "nomMaison": "Maison6",
+    "prix": 1000,
+    "adresse": "123 rue",
+    "nbrChambres": 3,
+    "nbrSDB": 2,
+    "surface": "30x40m²",
+    "favori": true,
+    "image": "pexels-binyamin-mellish-106399 1 (5).png"
+}
+]

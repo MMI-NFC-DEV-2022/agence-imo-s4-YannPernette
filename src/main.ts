@@ -1,4 +1,5 @@
 import './assets/main.css'
+import { plugin, defaultConfig } from "@formkit/vue";
 
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -11,5 +12,7 @@ app.use(
     history: createWebHistory()
   })
 )
+
+app.use(plugin, defaultConfig);
 
 app.mount('#app')
