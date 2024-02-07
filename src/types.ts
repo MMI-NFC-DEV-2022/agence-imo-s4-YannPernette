@@ -1,5 +1,5 @@
 export interface SchemaOffreMaison {
-    id?: string; 
+    id?: number; 
     nomMaison: string;
     prix: number;
     favori: boolean;

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import afficheMaison from '@/components/afficheMaison.vue';
-import { type SchemaOffreMaison } from '@/types';
+// import { type SchemaOffreMaison } from '@/types';
 
 import { supabase } from "@/supabase";
 console.log("supabase :", supabase); // pour vérifier et "garder" supabase dans le code
-let { data: Maison, error } = await supabase
+const { data: Maison, error } = await supabase
   .from('Maison')
   .select('*')
 </script>
