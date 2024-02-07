@@ -2,21 +2,26 @@
 import { ref } from "@vue/reactivity";
 import afficheMaison from "./afficheMaison.vue";
 import { supabase } from "@/supabase";
-
-
-// On fait une variable reactive qui réference les données
-// ATTENTION : faire une Ref pas une Reactive car :
-// c'est l'objet qui doit être réactif, pas ses props
+import { useRouter, useRoute } from "vue-router/auto";
+const router = useRouter();
 
 const maison = ref();
 
 async function upsertMaison(dataForm, node) {
-    const { data, error } = await supabase.from("Maison").upsert(dataForm);
+    const { data, error } = await supabase.from("Maison").upsert(dataForm).select("id");
     if (error) node.setErrors([error.message])
     else {
+        console.log("data :", data);
         node.setErrors([]);
-        router.push({ name: "", params: { id: data[0].id } });
+        router.push({ name: "/maisons/edit/[id]", params: { id: data[0].id }, query: { success: true } });
     }
+}
+
+const route = useRoute("/maisons/edit/[id]");
+if (route.params.id) {
+    const { data, error } = await supabase.from("Maison").select("*").eq("id", route.params.id).single();
+    if (error) console.error("error :", error);
+    else maison.value = data;
 }
 
 </script>
