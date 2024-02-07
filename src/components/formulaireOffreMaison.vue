@@ -1,12 +1,24 @@
 <script setup lang="ts">
 import { ref } from "@vue/reactivity";
 import afficheMaison from "./afficheMaison.vue";
+import { supabase } from "@/supabase";
+
 
 // On fait une variable reactive qui réference les données
 // ATTENTION : faire une Ref pas une Reactive car :
 // c'est l'objet qui doit être réactif, pas ses props
 
 const maison = ref();
+
+async function upsertMaison(dataForm, node) {
+    const { data, error } = await supabase.from("Maison").upsert(dataForm);
+    if (error) node.setErrors([error.message])
+    else {
+        node.setErrors([]);
+        router.push({ name: "", params: { id: data[0].id } });
+    }
+}
+
 </script>
 
 
@@ -20,7 +32,7 @@ const maison = ref();
 
         <div class="p-2">
             <!-- On passe la "ref" à FormKit -->
-            <FormKit type="form" v-model="maison" :config="{
+            <FormKit type="form" @submit="upsertMaison" v-model="maison" :config="{
                 classes: {
                     form: 'border-2 border-gray-300 py-8 px-20 rounded-lg w-fit mx-auto',
                     input: 'p-1 rounded border-gray-300 shadow-sm border mb-6 w-full',

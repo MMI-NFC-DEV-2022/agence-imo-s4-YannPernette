@@ -21,17 +21,17 @@ const maMaison: SchemaOffreMaison = {
 
 
 <template>
-    <div class="mt-10">
+    <div class="my-10">
         <h1>Etape 1 : </h1>
         <afficheMaison nomMaison="Maison" :prix="200" :nbrChambres="32" :nbrSDB="67" adresse="oui" favori
             image="src/assets/img/pexels-binyamin-mellish-106399.jpg" surface="400" />
     </div>
 
-    <div class="mt-10">
+    <div class="my-10">
         <afficheMaison v-bind="maMaison" />
     </div>
 
-    <div class="mt-10">
+    <div class="my-10">
         <afficheMaison v-bind="tableaumaisons[1]" />
     </div>
 
@@ -39,7 +39,7 @@ const maMaison: SchemaOffreMaison = {
         <afficheMaison v-bind:nomMaison="maMaison.nomMaison" />
     </div> -->
 
-    <div class="mt-10">
+    <div class="my-10">
         <afficheMaison v-for="maison in tableaumaisons" :key="maison.nomMaison" />
     </div>
 </template>
