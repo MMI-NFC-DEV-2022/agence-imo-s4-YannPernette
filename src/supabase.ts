@@ -11,7 +11,8 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey)
 // Pour tester dans la console, dé-commenter la ligne qui suit :
 globalThis.supabase = supabase
 
-export const user = ref(supabase.auth.getUser())
-supabase.auth.onAuthStateChange(()=>{
- user.value = supabase.auth.getUser()
+const { data } = await supabase.auth.getUser()
+export const user = ref(data.user)
+supabase.auth.onAuthStateChange( (evt,session)=>{
+    user.value = session?.user ?? null
 })
