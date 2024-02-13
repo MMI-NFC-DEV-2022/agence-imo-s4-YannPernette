@@ -2,7 +2,7 @@
 import { supabase } from "../../supabase";
 console.log("supabase :", supabase); // pour vérifier et "garder" supabase dans le code
 const { data, error } = await supabase
-    .from('Quartier')
+    .from('quartier_commune')
     .select('*')
 if (error) console.log("n'a pas pu charger la table quartiercommune :", error);
 </script>
