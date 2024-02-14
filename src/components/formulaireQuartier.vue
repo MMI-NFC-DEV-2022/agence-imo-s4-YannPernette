@@ -33,6 +33,24 @@ const optionsCommune = listeCommune?.map((commune) => ({
     value: commune.id,
     label: commune.nomCommune,
 }));
+
+
+async function supprimerQuartier() {
+    const { data, error } = await supabase
+        .from("Quartier")
+        .delete()
+        .match({ id: quartier.value.id });
+    if (error) {
+        console.error(
+            "Erreur à la suppression de ",
+            quartier.value,
+            "erreur :",
+            error
+        );
+    } else {
+        router.push("/quartiers");
+    }
+}
 </script>
 
 
@@ -49,6 +67,18 @@ const optionsCommune = listeCommune?.map((commune) => ({
             <FormKit name="nomQuartier" label="Nom du quartier" />
             <!-- <FormKit name="id_Commune" label="Commune de référence" type="number" /> -->
             <FormKit type="select" name="id_Commune" label="Commune" :options="optionsCommune" />
+
+            <button type="button" v-if="quartier.id" @click="($refs.dialogSupprimer as any).showModal()"
+            class="focus-style justify-self-end rounded-md bg-red-500 p-2 shadow-sm">
+            Supprimer l'offre
+        </button>
+        <dialog ref="dialogSupprimer" @click="($event.currentTarget as any).close()">
+            <button type="button" class="focus-style justify-self-end rounded-md bg-blue-300 p-2 shadow-sm">
+                Annuler</button><button type="button" @click="supprimerQuartier()"
+                class="focus-style rounded-md bg-red-500 p-2 shadow-sm">
+                Confirmer suppression
+            </button>
+        </dialog>
         </FormKit>
     </div>
 </template>
