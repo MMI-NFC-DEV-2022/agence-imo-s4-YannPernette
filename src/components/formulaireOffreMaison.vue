@@ -13,7 +13,7 @@ async function upsertMaison(dataForm, node) {
     else {
         console.log("data :", data);
         node.setErrors([]);
-        router.push({ name: "/maisons/edit/[id]", params: { id: data[0].id }, query: { success: true } });
+        router.push("/maisons/liste-supa");
     }
 }
 
@@ -28,6 +28,11 @@ const { data: dataQuartierCommune, error } = await supabase
     .from("quartier_commune")
     .select("*");
 if (error) console.log("n'a pas pu charger la vue quartier_commune :", error);
+
+const { data: dataAgent, error: agentError } = await supabase
+    .from("Agent")
+    .select("*");
+if (agentError) console.log("n'a pas pu charger la vue Agent :", agentError);
 </script>
 
 
@@ -58,8 +63,15 @@ if (error) console.log("n'a pas pu charger la vue quartier_commune :", error);
                 <FormKit name="surface" label="Surface de la maison" />
                 <FormKit name="id_Quartier" label="Quartier" type="select">
                     <option value="id_Quartier" :disabled="true">Choisir un quartier...</option>
-                    <option v-for="quartierCommune in dataQuartierCommune" :key="quartierCommune.id" :value="quartierCommune.id">
+                    <option v-for="quartierCommune in dataQuartierCommune" :key="quartierCommune.id"
+                        :value="quartierCommune.id">
                         {{ quartierCommune.nomQuartier }} - {{ quartierCommune.nomCommune }}</option>
+                </FormKit>
+                <FormKit name="id_Agent" label="Agent" type="select">
+                    <option value="id_Agent" :disabled="true">Choisir un agent...</option>
+                    <option v-for="agent in dataAgent" :key="agent.id"
+                        :value="agent.id">
+                        {{ agent.nomAgent }}</option>
                 </FormKit>
             </FormKit>
         </div>
