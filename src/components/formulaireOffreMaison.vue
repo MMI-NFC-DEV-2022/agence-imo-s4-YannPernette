@@ -24,6 +24,10 @@ if (route.params.id) {
     else maison.value = data;
 }
 
+const { data: dataQuartierCommune, error } = await supabase
+    .from("quartier_commune")
+    .select("*");
+if (error) console.log("n'a pas pu charger la vue quartier_commune :", error);
 </script>
 
 
@@ -52,6 +56,11 @@ if (route.params.id) {
                 <FormKit name="nbrSDB" label="Nombre de salles de bain de la maison" type="number" />
                 <FormKit name="adresse" label="Adresse de la maison" />
                 <FormKit name="surface" label="Surface de la maison" />
+                <FormKit name="id_Quartier" label="Quartier" type="select">
+                    <option value="id_Quartier" :disabled="true">Choisir un quartier...</option>
+                    <option v-for="quartierCommune in dataQuartierCommune" :key="quartierCommune.id" :value="quartierCommune.id">
+                        {{ quartierCommune.nomQuartier }} - {{ quartierCommune.nomCommune }}</option>
+                </FormKit>
             </FormKit>
         </div>
     </div>
