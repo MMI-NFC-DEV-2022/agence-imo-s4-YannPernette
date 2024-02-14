@@ -15,14 +15,15 @@ if (error) console.log("n'a pas pu charger la table quartiercommune :", error);
 </script>
 
 <template>
-    <section class="flex flex-col ml-10 mt-20">
+    <section class="flex flex-col mx-80 mt-20">
         <h3 class="text-2xl mb-5">Liste des quartiers</h3>
-        <ul>
-            <li v-for="communeObject in data" class="mb-3">
-                Les quartiers de {{ communeObject.nomCommune }} :
-                <ul>
+
+        <ul class="border-solid border-black border-4 text-center">
+            <li v-for="communeObject in data" class="bg-black text-white font-medium text-lg">
+                Les quartiers de {{ communeObject.nomCommune }}
+                <ul class="bg-white text-black font-normal text-base py-3">
                     <li v-for="quartierObject in communeObject.Quartier">
-                        {{ quartierObject.nomQuartier }}
+                        <RouterLink :to="{ name: '/quartiers/edit/[[id]]', params: { id: quartierObject.id } }">{{ quartierObject.nomQuartier }}</RouterLink>
                     </li>
                 </ul>
             </li>
