@@ -1,20 +1,48 @@
 <script setup lang="ts">
 import { supabase } from "../../supabase";
+import {
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
+} from '@headlessui/vue'
+import groupBy from "lodash/groupBy";
+
 console.log("supabase :", supabase); // pour vérifier et "garder" supabase dans le code
 const { data, error } = await supabase
-    .from('quartier_commune')
-    .select('*')
+    .from('Commune')
+    .select('*, Quartier(*)')
 if (error) console.log("n'a pas pu charger la table quartiercommune :", error);
 </script>
 
 <template>
-    <section class="flex flex-col">
-        <h3 class="text-2xl">Liste des quartiers</h3>
+    <section class="flex flex-col ml-10 mt-20">
+        <h3 class="text-2xl mb-5">Liste des quartiers</h3>
         <ul>
-            <li v-for="quartierObject in data">
-                {{ quartierObject.nomCommune }} -
-                {{ quartierObject.nomQuartier }}
+            <li v-for="communeObject in data" class="mb-3">
+                Les quartiers de {{ communeObject.nomCommune }} :
+                <ul>
+                    <li v-for="quartierObject in communeObject.Quartier">
+                        {{ quartierObject.nomQuartier }}
+                    </li>
+                </ul>
             </li>
         </ul>
+    </section>
+
+    <section class="flex flex-col ml-10 mt-20">
+        <h3 class="text-2xl mb-5">Liste des quartiers par commune</h3>
+
+        <Disclosure v-for="communeObject in data">
+            <DisclosureButton class="py-2">
+                {{ communeObject.nomCommune }}
+            </DisclosureButton>
+            <DisclosurePanel class="text-gray-500 border-solid border-black">
+                <ul>
+                    <li v-for="quartierObject in communeObject.Quartier">
+                        {{ quartierObject.nomQuartier }}
+                    </li>
+                </ul>
+            </DisclosurePanel>
+        </Disclosure>
     </section>
 </template>
