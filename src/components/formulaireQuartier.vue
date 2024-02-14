@@ -22,6 +22,17 @@ if (route.params.id) {
     if (error) console.error("error :", error);
     else quartier.value = data;
 }
+
+
+const { data: listeCommune, error } = await supabase
+    .from("Commune")
+    .select("*");
+if (error) console.log("n'a pas pu charger la table Commune :", error);
+// Les convertir par `map` en un tableau d'objets {value, label} pour FormKit
+const optionsCommune = listeCommune?.map((commune) => ({
+    value: commune.id,
+    label: commune.nomCommune,
+}));
 </script>
 
 
@@ -36,7 +47,8 @@ if (route.params.id) {
             },
         }" :submit-attrs="{ classes: { input: 'bg-red-300 p-4 mt-4 rounded w-full mb-0' } }">
             <FormKit name="nomQuartier" label="Nom du quartier" />
-            <FormKit name="id_Commune" label="Commune de référence" type="number" />
+            <!-- <FormKit name="id_Commune" label="Commune de référence" type="number" /> -->
+            <FormKit type="select" name="id_Commune" label="Commune" :options="optionsCommune" />
         </FormKit>
     </div>
 </template>

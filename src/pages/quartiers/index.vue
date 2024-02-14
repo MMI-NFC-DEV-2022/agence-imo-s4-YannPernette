@@ -30,7 +30,7 @@ if (error) console.log("n'a pas pu charger la table quartiercommune :", error);
         </ul>
     </section>
 
-    <section class="flex flex-col ml-10 mt-20">
+    <section class="flex flex-col ml-10 mt-20 mb-40">
         <h3 class="text-2xl mb-5">Liste des quartiers par commune</h3>
 
         <Disclosure v-for="communeObject in data">
